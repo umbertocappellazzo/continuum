@@ -62,12 +62,12 @@ class FluentSpeech(_AudioDataset):
             action, obj, location = items[-3:]
 
             x.append(os.path.join(base_path, items[1]))
-            y.append([
+            y.append(
                 self.class_ids[action+obj+location],
-                self.actions[action],
-                self.objects[obj],
-                self.locations[location]
-            ])
+                #self.actions[action],
+                #self.objects[obj],
+                #self.locations[location]
+            )
             if self.train == "train":
                 t.append(self.train_speaker_ids[items[2]])
             elif self.train == "valid":
@@ -77,8 +77,9 @@ class FluentSpeech(_AudioDataset):
 
             self.transcriptions.append(items[3])
 
-        return np.array(x), np.array(y), np.array(t)
+        return np.array(x), np.array(y), np.array(t), self.transcriptions
 
+    """
     @property
     def actions(self):
         return {
@@ -89,7 +90,7 @@ class FluentSpeech(_AudioDataset):
             'decrease': 4,
             'bring': 5
         }
-
+    
     @property
     def objects(self):
         return {
@@ -108,7 +109,7 @@ class FluentSpeech(_AudioDataset):
             'German': 12,
             'shoes': 13
         }
-
+    
     @property
     def locations(self):
         return {
@@ -118,6 +119,7 @@ class FluentSpeech(_AudioDataset):
             'washroom': 3
         }
 
+	"""
     @property
     def class_ids(self):
         return {
