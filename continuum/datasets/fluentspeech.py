@@ -77,7 +77,7 @@ class FluentSpeech(_AudioDataset):
 
             self.transcriptions.append(items[3])
 
-        return np.array(x), np.array(y), np.array(t), self.transcriptions
+        return np.array(x), np.array(y), np.array(t)#, self.transcriptions
 
     """
     @property
