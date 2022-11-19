@@ -58,7 +58,7 @@ class FluentSpeech(_AudioDataset):
 
         for line in lines:
             items = line[:-1].split(',')
-
+            print('ciao')
             action, obj, location = items[-3:]
 
             x.append(os.path.join(base_path, items[1]))
